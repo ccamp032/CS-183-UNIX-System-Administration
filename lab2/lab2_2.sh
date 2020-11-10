@@ -22,30 +22,30 @@ groupname=$(cat /etc/group | awk -F: '{print $1}')
 groupid2=$(cat /etc/group | awk -F: '{print $3}')
 
 #set variables into array
-arrayuid=(${userid})	 
-arraylogin=(${login})
-arraygroup=(${groupname})
-arraygid2=(${groupid2})
-aarraygid1=(${groupid1})
+arruid=(${userid})	 
+arrlogin=(${login})
+arrgroup=(${groupname})
+arrgid2=(${groupid2})
+arrgid1=(${groupid1})
 
 # initialize variables to zero
 i=0 #each unit
 j=0 #each groupid2
-#k=0
-#z=0
+k=0
+z=0
 
 for user in $login
 do
 ##print pass
 	echo -n "${user} "
-	echo -n "${arrayuid[i]} "
+	echo -n "${arruid[i]} "
 	
-	while [ ${arraygid1[i]} != ${arrraygid2[j]} ]
+	while [ ${arrgid1[i]} != ${arrgid2[j]} ]
 	do
 		j=$((j + 1))
 	done
 	#print matched gid group
-	echo "${arraygroup[j]}"
+	echo "${arrgroup[j]}"
 	j=0		
 	i=$((i +1)) 
 done
